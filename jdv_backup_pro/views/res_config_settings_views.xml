@@ -11,7 +11,7 @@
                     <setting string="Backup Management" help="Configure automatic database backups">
                         <div class="content-group">
                             <div class="mt16">
-                                <button name="%(auto_backup_pro.action_backup_config)d"
+                                <button name="%(jdv_backup_pro.action_backup_config)d"
                                         type="action"
                                         string="Configure Backups"
                                         class="btn-primary"
@@ -26,7 +26,7 @@
                     <setting string="Backup History" help="View backup logs and download previous backups">
                         <div class="content-group">
                             <div class="mt16">
-                                <button name="%(auto_backup_pro.action_backup_history)d"
+                                <button name="%(jdv_backup_pro.action_backup_history)d"
                                         type="action"
                                         string="View History"
                                         class="btn-secondary"

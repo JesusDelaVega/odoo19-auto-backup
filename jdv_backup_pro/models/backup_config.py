@@ -713,7 +713,7 @@ class BackupConfig(models.Model):
         if not self.notification_emails:
             return
 
-        template = self.env.ref('auto_backup_pro.mail_template_backup_notification', raise_if_not_found=False)
+        template = self.env.ref('jdv_backup_pro.mail_template_backup_notification', raise_if_not_found=False)
         if template:
             for email in self.notification_emails.split(','):
                 email = email.strip()
