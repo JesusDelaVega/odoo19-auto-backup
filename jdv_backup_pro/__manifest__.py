@@ -3,7 +3,7 @@
     'name': 'Auto Database Backup Pro',
     'version': '19.0.2.2.0',
     'author': 'Jose de Jesus De la Vega Garcia',
-    'website': 'https://github.com/JesusDelaVega',
+    'website': 'https://jesusdelavega.com',
     'maintainer': 'Jose de Jesus De la Vega Garcia',
     'support': 'programador@outlook.es',
     'category': 'Administration',
