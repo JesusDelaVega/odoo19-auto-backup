@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Module Category for Backup -->
+    <record id="module_category_backup" model="ir.module.category">
+        <field name="name">Database Backup</field>
+        <field name="description">Manage database backup permissions</field>
+        <field name="sequence">100</field>
+    </record>
+
+    <!-- Privilege for Backup Management -->
+    <record id="privilege_backup" model="res.groups.privilege">
+        <field name="name">Database Backup</field>
+        <field name="description">Access level for database backup management</field>
+        <field name="placeholder">No Access</field>
+        <field name="sequence">10</field>
+        <field name="category_id" ref="module_category_backup"/>
+    </record>
+
+    <!-- Backup User Group -->
+    <record id="group_backup_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="privilege_id" ref="privilege_backup"/>
+        <field name="comment">Can view backup configurations and history</field>
+        <field name="sequence">10</field>
+        <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Backup Manager Group -->
+    <record id="group_backup_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="privilege_id" ref="privilege_backup"/>
+        <field name="comment">Full access to backup management including S3, Google Drive configuration</field>
+        <field name="sequence">20</field>
+        <field name="implied_ids" eval="[Command.link(ref('group_backup_user'))]"/>
+        <field name="user_ids" eval="[Command.link(ref('base.user_admin'))]"/>
+    </record>
+</odoo>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- SEO Meta Tags -->
+    <title>Auto Database Backup Pro for Odoo 19 | Enterprise Backup Solution</title>
+    <meta name="description" content="Professional automatic database backup module for Odoo 19. Amazon S3, Google Drive, FTP, SFTP support. AES-256 encryption. Schedule hourly, daily, weekly or monthly backups.">
+    <meta name="keywords" content="Odoo 19 backup, Odoo database backup, Amazon S3 backup, Google Drive backup, automatic backup Odoo, Odoo backup module, encrypted backup, AES-256, scheduled backup Odoo, FTP backup Odoo, SFTP backup, Odoo 19 module, database protection, Odoo backup automation, backup scheduler, Odoo Community backup, Odoo Enterprise backup, DigitalOcean Spaces, MinIO backup">
+    <meta name="author" content="Jose de Jesus De la Vega Garcia">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Auto Database Backup Pro for Odoo 19">
+    <meta property="og:description" content="Enterprise backup solution with S3, Google Drive, encryption and advanced scheduling.">
+    <meta property="og:type" content="product">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 40px; }
+        .hero h1 { font-size: 2.5em; margin-bottom: 15px; }
+        .hero p { font-size: 1.2em; opacity: 0.95; }
+        .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; margin: 5px; font-size: 0.9em; }
+        .new-badge { background: #ff6b6b; color: white; }
+        h2 { color: #667eea; margin: 40px 0 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        h3 { color: #444; margin: 25px 0 15px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 30px 0; }
+        .feature { background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #667eea; }
+        .feature h4 { color: #667eea; margin-bottom: 10px; font-size: 1.1em; }
+        .feature p { color: #666; font-size: 0.95em; }
+        .icon { font-size: 2em; margin-bottom: 15px; }
+        ul { list-style: none; padding: 0; }
+        ul li { padding: 10px 0; padding-left: 30px; position: relative; }
+        ul li:before { content: "✓"; position: absolute; left: 0; color: #28a745; font-weight: bold; }
+        .storage-options { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 20px 0; }
+        .storage-option { background: white; border: 2px solid #e9ecef; padding: 20px 30px; border-radius: 8px; text-align: center; min-width: 140px; }
+        .storage-option:hover { border-color: #667eea; transform: translateY(-2px); transition: all 0.3s; }
+        .storage-option .icon { font-size: 2.5em; }
+        .cta { background: #28a745; color: white; padding: 40px; text-align: center; border-radius: 12px; margin: 40px 0; }
+        .cta h3 { margin-bottom: 15px; font-size: 1.5em; }
+        .steps { counter-reset: step; }
+        .steps li { counter-increment: step; padding-left: 50px; margin: 20px 0; }
+        .steps li:before { content: counter(step); background: #667eea; color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; position: absolute; left: 0; }
+        .languages { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .lang { background: #e9ecef; padding: 8px 20px; border-radius: 20px; }
+        .footer { text-align: center; padding: 30px; color: #666; border-top: 1px solid #e9ecef; margin-top: 40px; }
+        .pricing { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 30px 0; }
+        .pricing h3 { font-size: 2em; margin-bottom: 10px; }
+        .faq { background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 10px 0; }
+        .faq h3 { color: #667eea; font-size: 1.1em; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #667eea; color: white; }
+        tr:hover { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Auto Database Backup Pro</h1>
+            <p>Enterprise-grade backup solution for Odoo 19</p>
+            <div style="margin-top: 20px;">
+                <span class="badge">Odoo 19</span>
+                <span class="badge">Community & Enterprise</span>
+                <span class="badge new-badge">NEW: S3 & Google Drive</span>
+                <span class="badge new-badge">NEW: Encryption</span>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <h2>Key Features</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="icon">⏰</div>
+                <h4>Advanced Scheduling</h4>
+                <p>Hourly, daily, weekly, or monthly backups. Choose specific day of week or month for precise control.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">☁️</div>
+                <h4>Cloud Storage</h4>
+                <p>Amazon S3, Google Drive, DigitalOcean Spaces, MinIO, Wasabi and more compatible services.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔐</div>
+                <h4>AES-256 Encryption</h4>
+                <p>Military-grade encryption for your backups. Password-protected files for maximum security.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📊</div>
+                <h4>Statistics Dashboard</h4>
+                <p>Track success rate, backup sizes, and history. Know your backup health at a glance.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📧</div>
+                <h4>Email Notifications</h4>
+                <p>Get notified on backup success or failure. Stay informed about your data protection status.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⬇️</div>
+                <h4>One-Click Download</h4>
+                <p>Download any backup directly from the UI. Easy restore when you need it.</p>
+            </div>
+        </div>
+
+        <!-- Storage Options -->
+        <h2>Storage Destinations</h2>
+        <div class="storage-options">
+            <div class="storage-option">
+                <div class="icon">💾</div>
+                <div><strong>Local Server</strong></div>
+            </div>
+            <div class="storage-option">
+                <div class="icon">📁</div>
+                <div><strong>FTP</strong></div>
+            </div>
+            <div class="storage-option">
+                <div class="icon">🔒</div>
+                <div><strong>SFTP</strong></div>
+            </div>
+            <div class="storage-option">
+                <div class="icon">🪣</div>
+                <div><strong>Amazon S3</strong></div>
+                <small>& Compatible</small>
+            </div>
+            <div class="storage-option">
+                <div class="icon">📂</div>
+                <div><strong>Google Drive</strong></div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <h2>Feature Comparison</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Basic Modules</th>
+                <th>Auto Backup Pro</th>
+            </tr>
+            <tr>
+                <td>Local Storage</td>
+                <td>✓</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>FTP/SFTP</td>
+                <td>✓</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Amazon S3</td>
+                <td>✗</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Google Drive</td>
+                <td>✗</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Encryption (AES-256)</td>
+                <td>✗</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Hourly Backups</td>
+                <td>✗</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Multi-Destination</td>
+                <td>✗</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Statistics Dashboard</td>
+                <td>✗</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Direct Download</td>
+                <td>✗</td>
+                <td>✓</td>
+            </tr>
+        </table>
+
+        <!-- Backup Formats -->
+        <h2>Backup Formats</h2>
+        <ul>
+            <li><strong>ZIP Format:</strong> Complete backup including database and filestore (attachments, images, documents)</li>
+            <li><strong>SQL Dump:</strong> Lightweight database-only backup, perfect for quick restores</li>
+            <li><strong>Encrypted:</strong> Optional AES-256 encryption with password protection</li>
+        </ul>
+
+        <!-- Installation -->
+        <h2>Easy Installation</h2>
+        <ol class="steps">
+            <li>Install the module from Apps menu</li>
+            <li>Go to Database Backups menu</li>
+            <li>Create a new backup configuration</li>
+            <li>Choose storage type and enter credentials</li>
+            <li>Set your schedule and retention policy</li>
+            <li>Click "Test Connection" to verify</li>
+            <li>Done! Your data is now protected</li>
+        </ol>
+
+        <!-- Optional Dependencies -->
+        <h2>Optional Dependencies</h2>
+        <p>Install only what you need:</p>
+        <ul>
+            <li><strong>paramiko</strong> - For SFTP support: <code>pip install paramiko</code></li>
+            <li><strong>boto3</strong> - For Amazon S3: <code>pip install boto3</code></li>
+            <li><strong>google-api-python-client</strong> - For Google Drive: <code>pip install google-api-python-client google-auth</code></li>
+            <li><strong>cryptography</strong> - For encryption: <code>pip install cryptography</code></li>
+        </ul>
+
+        <!-- Languages -->
+        <h2>Languages Supported</h2>
+        <div class="languages">
+            <span class="lang">🇺🇸 English</span>
+            <span class="lang">🇪🇸 Espanol</span>
+        </div>
+
+        <!-- FAQ Section -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq">
+            <h3>Does this module work with Odoo 19 Community?</h3>
+            <p>Yes! This backup module is fully compatible with both Odoo 19 Community and Enterprise editions.</p>
+        </div>
+
+        <div class="faq">
+            <h3>How do I set up Amazon S3?</h3>
+            <p>Create an S3 bucket and IAM user in AWS console. Enter Access Key, Secret Key, bucket name and region in the module settings. Works with any S3-compatible service (DigitalOcean Spaces, MinIO, Wasabi).</p>
+        </div>
+
+        <div class="faq">
+            <h3>How do I set up Google Drive?</h3>
+            <p>Create a Service Account in Google Cloud Console, download the JSON key file, and paste its content in the module settings. Share your destination folder with the service account email.</p>
+        </div>
+
+        <div class="faq">
+            <h3>Is the encryption secure?</h3>
+            <p>Yes! We use AES-256 encryption with PBKDF2 key derivation (100,000 iterations). This is military-grade encryption suitable for sensitive data.</p>
+        </div>
+
+        <div class="faq">
+            <h3>Can I backup to multiple destinations?</h3>
+            <p>Yes! Enable "Also Save Locally" to keep a local copy in addition to your cloud storage.</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <h3>Protect Your Business Data Today!</h3>
+            <p>Don't wait for a disaster. Set up automatic encrypted backups and have peace of mind.</p>
+        </div>
+
+        <!-- Technical Info -->
+        <h2>Technical Information</h2>
+        <ul>
+            <li>Compatible with Odoo 19 Community and Enterprise</li>
+            <li>No mandatory external dependencies - install only what you need</li>
+            <li>Uses Odoo's native backup mechanism for reliability</li>
+            <li>Fully integrated with Odoo's security model</li>
+            <li>Clean, well-documented Python code</li>
+            <li>LGPL-3 License</li>
+        </ul>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Author:</strong> Jose de Jesus De la Vega Garcia</p>
+            <p>Professional Odoo Developer | Odoo 19 Specialist</p>
+            <p>Support: programador@outlook.es</p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #888;">
+                Keywords: Odoo backup, database backup, Amazon S3, Google Drive, automatic backup,
+                encrypted backup, AES-256, scheduled backup, Odoo 19 module, backup automation,
+                data protection, disaster recovery, GDPR compliance
+            </p>
+        </div>
+    </div>
+</body>
+</html>

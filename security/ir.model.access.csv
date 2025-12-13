@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_backup_config_user,auto.backup.config.user,model_auto_backup_config,group_backup_user,1,0,0,0
+access_backup_config_manager,auto.backup.config.manager,model_auto_backup_config,group_backup_manager,1,1,1,1
+access_backup_history_user,auto.backup.history.user,model_auto_backup_history,group_backup_user,1,0,0,0
+access_backup_history_manager,auto.backup.history.manager,model_auto_backup_history,group_backup_manager,1,1,1,1

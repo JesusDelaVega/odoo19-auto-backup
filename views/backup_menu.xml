@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu - visible to backup users -->
+    <menuitem id="menu_backup_root"
+        name="Database Backups"
+        web_icon="auto_backup,static/description/icon.png"
+        groups="group_backup_user"
+        sequence="100"/>
+
+    <!-- Submenu: Configurations - only for managers -->
+    <menuitem id="menu_backup_config"
+        name="Backup Configurations"
+        parent="menu_backup_root"
+        action="action_backup_config"
+        groups="group_backup_manager"
+        sequence="10"/>
+
+    <!-- Submenu: History - for all backup users -->
+    <menuitem id="menu_backup_history"
+        name="Backup History"
+        parent="menu_backup_root"
+        action="action_backup_history"
+        groups="group_backup_user"
+        sequence="20"/>
+</odoo>

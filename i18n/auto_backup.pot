@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* auto_backup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: auto_backup
+msgid "Auto Database Backup"
+msgstr ""
+
+#. module: auto_backup
+msgid "Backup Name"
+msgstr ""
+
+#. module: auto_backup
+msgid "Database Name"
+msgstr ""
+
+#. module: auto_backup
+msgid "Backup Format"
+msgstr ""
+
+#. module: auto_backup
+msgid "Frequency"
+msgstr ""
+
+#. module: auto_backup
+msgid "Daily"
+msgstr ""
+
+#. module: auto_backup
+msgid "Weekly"
+msgstr ""
+
+#. module: auto_backup
+msgid "Monthly"
+msgstr ""
+
+#. module: auto_backup
+msgid "Backup Time"
+msgstr ""
+
+#. module: auto_backup
+msgid "Storage Type"
+msgstr ""
+
+#. module: auto_backup
+msgid "Local Server"
+msgstr ""
+
+#. module: auto_backup
+msgid "FTP Server"
+msgstr ""
+
+#. module: auto_backup
+msgid "SFTP Server"
+msgstr ""
+
+#. module: auto_backup
+msgid "Backup Now"
+msgstr ""
+
+#. module: auto_backup
+msgid "Test Connection"
+msgstr ""
+
+#. module: auto_backup
+msgid "Backup History"
+msgstr ""

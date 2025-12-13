@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_template_backup_notification" model="mail.template">
+        <field name="name">Backup Notification</field>
+        <field name="model_id" ref="model_auto_backup_config"/>
+        <field name="subject">Database Backup {{ ctx.get('backup_status', 'Report') }}: {{ object.database_name }}</field>
+        <field name="email_from">{{ (object.company_id.email or user.email_formatted) }}</field>
+        <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed;">
+        <tr>
+            <td valign="top">
+                <table width="600" border="0" cellpadding="0" bgcolor="#ffffff" style="margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+                    <tr>
+                        <td style="background-color: {{ 'success' in (ctx.get('backup_status') or '') and '#28a745' or '#dc3545' }}; padding: 20px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0;">Database Backup {{ ctx.get('backup_status', 'Report') }}</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 30px;">
+                            <p style="font-size: 16px; color: #333333;">
+                                <strong>Backup Configuration:</strong> {{ object.name }}<br/>
+                                <strong>Database:</strong> {{ object.database_name }}<br/>
+                                <strong>Date:</strong> {{ object.last_backup_date }}<br/>
+                                <strong>Storage:</strong> {{ object.storage_type }}<br/>
+                            </p>
+                            <p style="font-size: 14px; color: #666666; background-color: #f8f9fa; padding: 15px; border-radius: 4px;">
+                                {{ ctx.get('backup_message', '') }}
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 20px; text-align: center; background-color: #f8f9fa;">
+                            <p style="font-size: 12px; color: #999999; margin: 0;">
+                                Auto Database Backup Module<br/>
+                                Powered by Odoo
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+        </field>
+        <field name="auto_delete">True</field>
+    </record>
+</odoo>

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Actions -->
+    <record id="action_backup_config" model="ir.actions.act_window">
+        <field name="name">Backup Configurations</field>
+        <field name="res_model">auto.backup.config</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first backup configuration
+            </p>
+            <p>Configure automatic backups to Local, FTP, SFTP, Amazon S3 or Google Drive.</p>
+        </field>
+    </record>
+
+    <record id="action_backup_history" model="ir.actions.act_window">
+        <field name="name">Backup History</field>
+        <field name="res_model">auto.backup.history</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== KANBAN VIEW (DASHBOARD) ==================== -->
+    <record id="view_backup_config_kanban" model="ir.ui.view">
+        <field name="name">auto.backup.config.kanban</field>
+        <field name="model">auto.backup.config</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard" default_group_by="storage_type">
+                <field name="name"/>
+                <field name="database_name"/>
+                <field name="storage_type"/>
+                <field name="backup_frequency"/>
+                <field name="last_backup_date"/>
+                <field name="last_backup_status"/>
+                <field name="last_backup_size"/>
+                <field name="next_backup"/>
+                <field name="backup_count"/>
+                <field name="success_count"/>
+                <field name="failed_count"/>
+                <field name="success_rate"/>
+                <field name="active"/>
+                <field name="encrypt_backup"/>
+                <templates>
+                    <t t-name="card" class="flex-row">
+                        <aside>
+                            <field name="active" invisible="1"/>
+                            <!-- Status Icon -->
+                            <div t-if="record.last_backup_status.raw_value == 'success'"
+                                 class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center"
+                                 style="width: 50px; height: 50px; font-size: 24px;">
+                                <i class="fa fa-check"/>
+                            </div>
+                            <div t-elif="record.last_backup_status.raw_value == 'failed'"
+                                 class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center"
+                                 style="width: 50px; height: 50px; font-size: 24px;">
+                                <i class="fa fa-times"/>
+                            </div>
+                            <div t-else=""
+                                 class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                                 style="width: 50px; height: 50px; font-size: 24px;">
+                                <i class="fa fa-clock-o"/>
+                            </div>
+                        </aside>
+                        <main>
+                            <div class="d-flex justify-content-between align-items-start">
+                                <strong class="o_kanban_record_title fs-5">
+                                    <field name="name"/>
+                                </strong>
+                                <div class="d-flex gap-1">
+                                    <span t-if="record.encrypt_backup.raw_value"
+                                          class="badge text-bg-warning" title="Encrypted">
+                                        <i class="fa fa-lock"/>
+                                    </span>
+                                    <span t-if="record.storage_type.raw_value == 's3'"
+                                          class="badge text-bg-info">S3</span>
+                                    <span t-elif="record.storage_type.raw_value == 'google_drive'"
+                                          class="badge text-bg-primary">GDrive</span>
+                                    <span t-elif="record.storage_type.raw_value == 'sftp'"
+                                          class="badge text-bg-secondary">SFTP</span>
+                                    <span t-elif="record.storage_type.raw_value == 'ftp'"
+                                          class="badge text-bg-secondary">FTP</span>
+                                    <span t-else="" class="badge text-bg-dark">Local</span>
+                                </div>
+                            </div>
+
+                            <div class="text-muted small mb-2">
+                                <i class="fa fa-database me-1"/><field name="database_name"/>
+                            </div>
+
+                            <!-- Stats Row -->
+                            <div class="d-flex gap-3 mb-2">
+                                <div class="text-center">
+                                    <div class="fw-bold text-primary fs-5"><field name="backup_count"/></div>
+                                    <div class="text-muted small">Total</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="fw-bold text-success fs-5"><field name="success_count"/></div>
+                                    <div class="text-muted small">OK</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="fw-bold text-danger fs-5"><field name="failed_count"/></div>
+                                    <div class="text-muted small">Failed</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="fw-bold fs-5"><field name="success_rate"/>%</div>
+                                    <div class="text-muted small">Rate</div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Bar -->
+                            <div class="progress mb-2" style="height: 6px;">
+                                <div class="progress-bar bg-success"
+                                     t-attf-style="width: #{record.success_rate.raw_value}%"/>
+                            </div>
+
+                            <!-- Info Footer -->
+                            <div class="d-flex justify-content-between text-muted small">
+                                <span>
+                                    <i class="fa fa-calendar me-1"/>
+                                    <field name="backup_frequency"/>
+                                </span>
+                                <span t-if="record.last_backup_size.raw_value">
+                                    <i class="fa fa-file me-1"/>
+                                    <field name="last_backup_size"/>
+                                </span>
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-2 pt-2 border-top">
+                                <span class="text-muted small" t-if="record.last_backup_date.raw_value">
+                                    <i class="fa fa-history me-1"/>Last: <field name="last_backup_date"/>
+                                </span>
+                                <span class="text-primary small" t-if="record.next_backup.raw_value">
+                                    <i class="fa fa-clock-o me-1"/>Next: <field name="next_backup"/>
+                                </span>
+                            </div>
+                        </main>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ==================== FORM VIEW ==================== -->
+    <record id="view_backup_config_form" model="ir.ui.view">
+        <field name="name">auto.backup.config.form</field>
+        <field name="model">auto.backup.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_backup_now" string="Backup Now" type="object" class="oe_highlight" icon="fa-play"/>
+                    <button name="action_test_connection" string="Test Connection" type="object" icon="fa-plug"/>
+                </header>
+                <sheet>
+                    <!-- Stats Buttons -->
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_backup_now" icon="fa-database">
+                            <field string="Total" name="backup_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-check" disabled="1">
+                            <field string="Success" name="success_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-times" disabled="1">
+                            <field string="Failed" name="failed_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-percent" disabled="1">
+                            <field string="Rate %" name="success_rate" widget="statinfo"/>
+                        </button>
+                    </div>
+
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Backup Name"/></h1>
+                    </div>
+
+                    <!-- Status Alert -->
+                    <div class="alert alert-success" role="alert" invisible="last_backup_status != 'success'">
+                        <i class="fa fa-check-circle me-2"/>
+                        <strong>Last backup successful!</strong>
+                        <span class="ms-2"><field name="last_backup_date"/></span>
+                        <span class="ms-2">(<field name="last_backup_size"/>)</span>
+                    </div>
+                    <div class="alert alert-danger" role="alert" invisible="last_backup_status != 'failed'">
+                        <i class="fa fa-exclamation-circle me-2"/>
+                        <strong>Last backup failed!</strong>
+                        <span class="ms-2"><field name="last_backup_message"/></span>
+                    </div>
+
+                    <group>
+                        <group string="Database">
+                            <field name="database_name"/>
+                            <field name="backup_format" widget="radio"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Next Backup">
+                            <field name="next_backup" widget="badge"/>
+                            <field name="last_backup_date"/>
+                            <field name="last_backup_status" widget="badge"
+                                   decoration-success="last_backup_status == 'success'"
+                                   decoration-danger="last_backup_status == 'failed'"/>
+                            <field name="avg_size"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <!-- Schedule Tab -->
+                        <page string="Schedule" name="schedule" icon="fa-calendar">
+                            <group>
+                                <group string="Frequency">
+                                    <field name="backup_frequency" widget="radio"/>
+                                    <field name="backup_hour_interval" invisible="backup_frequency != 'hourly'"
+                                           widget="integer" options="{'type': 'number', 'step': 1}"/>
+                                    <field name="backup_time" widget="float_time" invisible="backup_frequency == 'hourly'"/>
+                                    <field name="backup_day_of_week" widget="radio" invisible="backup_frequency != 'weekly'"/>
+                                    <field name="backup_day_of_month" invisible="backup_frequency != 'monthly'"/>
+                                </group>
+                                <group string="Retention">
+                                    <field name="backup_retention"/>
+                                    <div class="text-muted" colspan="2">
+                                        Backups older than this will be automatically deleted.
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Storage Tab -->
+                        <page string="Storage" name="storage" icon="fa-cloud">
+                            <group>
+                                <group string="Destination">
+                                    <field name="storage_type" widget="radio"/>
+                                    <field name="also_save_local" invisible="storage_type == 'local'"/>
+                                </group>
+                                <group string="Security">
+                                    <field name="encrypt_backup"/>
+                                    <field name="encryption_password" password="True" invisible="not encrypt_backup"/>
+                                </group>
+                            </group>
+
+                            <!-- Local Storage -->
+                            <group string="Local Storage" invisible="storage_type != 'local' and not also_save_local"
+                                   class="bg-light p-3 rounded">
+                                <field name="local_path" placeholder="/var/backups/odoo"/>
+                            </group>
+
+                            <!-- FTP/SFTP -->
+                            <group string="FTP/SFTP Connection" invisible="storage_type not in ('ftp', 'sftp')"
+                                   class="bg-light p-3 rounded">
+                                <group>
+                                    <field name="ftp_host" placeholder="ftp.example.com"/>
+                                    <field name="ftp_port"/>
+                                    <field name="ftp_path" placeholder="/backups"/>
+                                </group>
+                                <group>
+                                    <field name="ftp_user" placeholder="username"/>
+                                    <field name="ftp_password" password="True"/>
+                                </group>
+                            </group>
+
+                            <!-- Amazon S3 -->
+                            <group string="Amazon S3 / Compatible" invisible="storage_type != 's3'"
+                                   class="bg-light p-3 rounded">
+                                <group>
+                                    <field name="s3_bucket" placeholder="my-backup-bucket"/>
+                                    <field name="s3_region" placeholder="us-east-1"/>
+                                    <field name="s3_path" placeholder="odoo-backups/"/>
+                                    <field name="s3_endpoint" placeholder="https://s3.amazonaws.com (optional)"/>
+                                </group>
+                                <group>
+                                    <field name="s3_access_key" placeholder="AKIAIOSFODNN7EXAMPLE"/>
+                                    <field name="s3_secret_key" password="True"/>
+                                </group>
+                            </group>
+
+                            <!-- Google Drive -->
+                            <group string="Google Drive" invisible="storage_type != 'google_drive'"
+                                   class="bg-light p-3 rounded">
+                                <field name="google_drive_folder_id" placeholder="Folder ID from Drive URL"/>
+                                <field name="google_drive_credentials" placeholder="Paste Service Account JSON"/>
+                            </group>
+                        </page>
+
+                        <!-- Notifications Tab -->
+                        <page string="Notifications" name="notifications" icon="fa-envelope">
+                            <group>
+                                <group string="Send Email When">
+                                    <field name="notify_on_success" widget="boolean_toggle"/>
+                                    <field name="notify_on_failure" widget="boolean_toggle"/>
+                                </group>
+                                <group string="Recipients">
+                                    <field name="notification_emails" placeholder="admin@example.com, backup@example.com"
+                                           widget="email"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- History Tab -->
+                        <page string="History" name="history" icon="fa-history">
+                            <!-- Summary Cards -->
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <div class="card text-center bg-primary text-white">
+                                        <div class="card-body py-2">
+                                            <h3 class="mb-0"><field name="backup_count"/></h3>
+                                            <small>Total Backups</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card text-center bg-success text-white">
+                                        <div class="card-body py-2">
+                                            <h3 class="mb-0"><field name="success_count"/></h3>
+                                            <small>Successful</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card text-center bg-danger text-white">
+                                        <div class="card-body py-2">
+                                            <h3 class="mb-0"><field name="failed_count"/></h3>
+                                            <small>Failed</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card text-center bg-info text-white">
+                                        <div class="card-body py-2">
+                                            <h3 class="mb-0"><field name="avg_size"/></h3>
+                                            <small>Avg Size</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <group>
+                                <field name="last_backup_message" readonly="1" string="Last Message"/>
+                            </group>
+
+                            <field name="backup_history_ids" readonly="1">
+                                <list decoration-success="status == 'success'" decoration-danger="status == 'failed'"
+                                      default_order="backup_date desc">
+                                    <field name="backup_date" widget="datetime"/>
+                                    <field name="status" widget="badge"
+                                           decoration-success="status == 'success'"
+                                           decoration-danger="status == 'failed'"/>
+                                    <field name="filename"/>
+                                    <field name="file_size"/>
+                                    <field name="encrypted" widget="boolean"/>
+                                    <field name="file_path" column_invisible="1"/>
+                                    <button name="action_download_backup" string="Download" type="object"
+                                            icon="fa-download" class="btn-sm btn-outline-primary"
+                                            invisible="status != 'success' or not file_path"/>
+                                    <button name="action_delete_backup" string="Delete" type="object"
+                                            icon="fa-trash" class="btn-sm btn-outline-danger"
+                                            confirm="Delete this backup permanently?"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ==================== LIST VIEW ==================== -->
+    <record id="view_backup_config_list" model="ir.ui.view">
+        <field name="name">auto.backup.config.list</field>
+        <field name="model">auto.backup.config</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active" default_order="last_backup_date desc">
+                <field name="name"/>
+                <field name="database_name"/>
+                <field name="storage_type" widget="badge"/>
+                <field name="backup_frequency"/>
+                <field name="encrypt_backup" widget="boolean"/>
+                <field name="backup_count"/>
+                <field name="success_rate" widget="progressbar"/>
+                <field name="last_backup_date"/>
+                <field name="last_backup_status" widget="badge"
+                       decoration-success="last_backup_status == 'success'"
+                       decoration-danger="last_backup_status == 'failed'"/>
+                <field name="next_backup"/>
+                <field name="active" column_invisible="1"/>
+                <button name="action_backup_now" string="Run" type="object" icon="fa-play" class="btn-sm btn-primary"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ==================== HISTORY VIEWS ==================== -->
+    <record id="view_backup_history_list" model="ir.ui.view">
+        <field name="name">auto.backup.history.list</field>
+        <field name="model">auto.backup.history</field>
+        <field name="arch" type="xml">
+            <list create="false" edit="false" decoration-success="status == 'success'" decoration-danger="status == 'failed'"
+                  default_order="backup_date desc">
+                <field name="backup_date" widget="datetime"/>
+                <field name="config_id"/>
+                <field name="status" widget="badge"
+                       decoration-success="status == 'success'"
+                       decoration-danger="status == 'failed'"/>
+                <field name="filename"/>
+                <field name="file_size"/>
+                <field name="storage_type" widget="badge"/>
+                <field name="encrypted" widget="boolean"/>
+                <field name="message" optional="hide"/>
+                <field name="file_path" column_invisible="1"/>
+                <button name="action_download_backup" string="Download" type="object" icon="fa-download"
+                        class="btn-sm btn-outline-primary"
+                        invisible="status != 'success' or not file_path"/>
+                <button name="action_delete_backup" string="Delete" type="object" icon="fa-trash"
+                        class="btn-sm btn-outline-danger"
+                        confirm="Delete this backup permanently?"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_backup_history_form" model="ir.ui.view">
+        <field name="name">auto.backup.history.form</field>
+        <field name="model">auto.backup.history</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false">
+                <header>
+                    <button name="action_download_backup" string="Download" type="object"
+                            class="oe_highlight" icon="fa-download"
+                            invisible="status != 'success' or not file_path"/>
+                    <button name="action_delete_backup" string="Delete" type="object"
+                            class="btn-danger" icon="fa-trash"
+                            confirm="Delete this backup permanently?"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="filename"/></h1>
+                    </div>
+                    <group>
+                        <group string="Backup Info">
+                            <field name="config_id"/>
+                            <field name="backup_date"/>
+                            <field name="status" widget="badge"/>
+                        </group>
+                        <group string="File Details">
+                            <field name="file_size"/>
+                            <field name="storage_type"/>
+                            <field name="encrypted"/>
+                            <field name="file_path"/>
+                        </group>
+                    </group>
+                    <group string="Message" invisible="not message">
+                        <field name="message" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

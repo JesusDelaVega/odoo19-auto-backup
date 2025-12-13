@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend res.config.settings to add backup configuration -->
+    <record id="res_config_settings_view_form_backup" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.backup</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='general_settings']" position="inside">
+                <block title="Database Backups" name="backup_settings">
+                    <setting string="Backup Management" help="Configure automatic database backups">
+                        <div class="content-group">
+                            <div class="mt16">
+                                <button name="%(auto_backup.action_backup_config)d"
+                                        type="action"
+                                        string="Configure Backups"
+                                        class="btn-primary"
+                                        icon="fa-database"/>
+                            </div>
+                            <div class="mt8 text-muted">
+                                <p>Set up automatic backups to Local, FTP, SFTP, Amazon S3 or Google Drive.</p>
+                                <p>Supports AES-256 encryption for secure backups.</p>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting string="Backup History" help="View backup logs and download previous backups">
+                        <div class="content-group">
+                            <div class="mt16">
+                                <button name="%(auto_backup.action_backup_history)d"
+                                        type="action"
+                                        string="View History"
+                                        class="btn-secondary"
+                                        icon="fa-history"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

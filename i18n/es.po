@@ -1,0 +1,565 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* auto_backup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: auto_backup
+msgid "Auto Database Backup Pro"
+msgstr "Respaldo Automatico de Base de Datos Pro"
+
+#. module: auto_backup
+msgid "Backup Name"
+msgstr "Nombre del Respaldo"
+
+#. module: auto_backup
+msgid "A descriptive name for this backup configuration"
+msgstr "Un nombre descriptivo para esta configuracion de respaldo"
+
+#. module: auto_backup
+msgid "Database Name"
+msgstr "Nombre de Base de Datos"
+
+#. module: auto_backup
+msgid "Backup Format"
+msgstr "Formato de Respaldo"
+
+#. module: auto_backup
+msgid "Zip (includes filestore)"
+msgstr "Zip (incluye archivos)"
+
+#. module: auto_backup
+msgid "SQL Dump (database only)"
+msgstr "SQL Dump (solo base de datos)"
+
+#. module: auto_backup
+msgid "Frequency"
+msgstr "Frecuencia"
+
+#. module: auto_backup
+msgid "Every X Hours"
+msgstr "Cada X Horas"
+
+#. module: auto_backup
+msgid "Run backup every X hours (for hourly frequency)"
+msgstr "Ejecutar respaldo cada X horas (para frecuencia por hora)"
+
+#. module: auto_backup
+msgid "Daily"
+msgstr "Diario"
+
+#. module: auto_backup
+msgid "Weekly"
+msgstr "Semanal"
+
+#. module: auto_backup
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: auto_backup
+msgid "Backup Time"
+msgstr "Hora del Respaldo"
+
+#. module: auto_backup
+msgid "Day of Week"
+msgstr "Dia de la Semana"
+
+#. module: auto_backup
+msgid "Day to run weekly backups"
+msgstr "Dia para ejecutar respaldos semanales"
+
+#. module: auto_backup
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: auto_backup
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: auto_backup
+msgid "Wednesday"
+msgstr "Miercoles"
+
+#. module: auto_backup
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: auto_backup
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: auto_backup
+msgid "Saturday"
+msgstr "Sabado"
+
+#. module: auto_backup
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: auto_backup
+msgid "Day of Month"
+msgstr "Dia del Mes"
+
+#. module: auto_backup
+msgid "Day of month to run monthly backups (1-28)"
+msgstr "Dia del mes para ejecutar respaldos mensuales (1-28)"
+
+#. module: auto_backup
+msgid "Storage Type"
+msgstr "Tipo de Almacenamiento"
+
+#. module: auto_backup
+msgid "Local Server"
+msgstr "Servidor Local"
+
+#. module: auto_backup
+msgid "FTP Server"
+msgstr "Servidor FTP"
+
+#. module: auto_backup
+msgid "SFTP Server"
+msgstr "Servidor SFTP"
+
+#. module: auto_backup
+msgid "Amazon S3 / Compatible"
+msgstr "Amazon S3 / Compatible"
+
+#. module: auto_backup
+msgid "Google Drive"
+msgstr "Google Drive"
+
+#. module: auto_backup
+msgid "Local Path"
+msgstr "Ruta Local"
+
+#. module: auto_backup
+msgid "FTP/SFTP Host"
+msgstr "Host FTP/SFTP"
+
+#. module: auto_backup
+msgid "Port"
+msgstr "Puerto"
+
+#. module: auto_backup
+msgid "Username"
+msgstr "Usuario"
+
+#. module: auto_backup
+msgid "Password"
+msgstr "Contrasena"
+
+#. module: auto_backup
+msgid "Remote Path"
+msgstr "Ruta Remota"
+
+#. module: auto_backup
+msgid "Access Key ID"
+msgstr "ID de Clave de Acceso"
+
+#. module: auto_backup
+msgid "Secret Access Key"
+msgstr "Clave de Acceso Secreta"
+
+#. module: auto_backup
+msgid "Bucket Name"
+msgstr "Nombre del Bucket"
+
+#. module: auto_backup
+msgid "Region"
+msgstr "Region"
+
+#. module: auto_backup
+msgid "Custom Endpoint"
+msgstr "Endpoint Personalizado"
+
+#. module: auto_backup
+msgid "Leave empty for AWS S3. For compatible services (DigitalOcean, MinIO, Wasabi), enter the endpoint URL."
+msgstr "Dejar vacio para AWS S3. Para servicios compatibles (DigitalOcean, MinIO, Wasabi), ingrese la URL del endpoint."
+
+#. module: auto_backup
+msgid "Path/Prefix"
+msgstr "Ruta/Prefijo"
+
+#. module: auto_backup
+msgid "Folder ID"
+msgstr "ID de Carpeta"
+
+#. module: auto_backup
+msgid "ID of the Google Drive folder where backups will be stored"
+msgstr "ID de la carpeta de Google Drive donde se guardaran los respaldos"
+
+#. module: auto_backup
+msgid "Service Account JSON"
+msgstr "JSON de Cuenta de Servicio"
+
+#. module: auto_backup
+msgid "Paste the content of your Google Service Account JSON file"
+msgstr "Pegue el contenido de su archivo JSON de Cuenta de Servicio de Google"
+
+#. module: auto_backup
+msgid "Encrypt Backup"
+msgstr "Encriptar Respaldo"
+
+#. module: auto_backup
+msgid "Encrypt backup file with AES-256 encryption"
+msgstr "Encriptar archivo de respaldo con encriptacion AES-256"
+
+#. module: auto_backup
+msgid "Encryption Password"
+msgstr "Contrasena de Encriptacion"
+
+#. module: auto_backup
+msgid "Password used to encrypt/decrypt backups"
+msgstr "Contrasena usada para encriptar/desencriptar respaldos"
+
+#. module: auto_backup
+msgid "Also Save Locally"
+msgstr "Tambien Guardar Localmente"
+
+#. module: auto_backup
+msgid "Keep a local copy in addition to remote storage"
+msgstr "Mantener una copia local ademas del almacenamiento remoto"
+
+#. module: auto_backup
+msgid "Keep Backups (days)"
+msgstr "Mantener Respaldos (dias)"
+
+#. module: auto_backup
+msgid "Number of days to keep backups. Older backups will be deleted automatically."
+msgstr "Numero de dias para mantener respaldos. Los respaldos antiguos se eliminaran automaticamente."
+
+#. module: auto_backup
+msgid "Notify on Success"
+msgstr "Notificar en Exito"
+
+#. module: auto_backup
+msgid "Notify on Failure"
+msgstr "Notificar en Fallo"
+
+#. module: auto_backup
+msgid "Notification Emails"
+msgstr "Correos de Notificacion"
+
+#. module: auto_backup
+msgid "Last Backup"
+msgstr "Ultimo Respaldo"
+
+#. module: auto_backup
+msgid "Last Status"
+msgstr "Ultimo Estado"
+
+#. module: auto_backup
+msgid "Success"
+msgstr "Exitoso"
+
+#. module: auto_backup
+msgid "Failed"
+msgstr "Fallido"
+
+#. module: auto_backup
+msgid "Last Message"
+msgstr "Ultimo Mensaje"
+
+#. module: auto_backup
+msgid "Last Backup Size"
+msgstr "Tamano del Ultimo Respaldo"
+
+#. module: auto_backup
+msgid "Backup History"
+msgstr "Historial de Respaldos"
+
+#. module: auto_backup
+msgid "Total Backups"
+msgstr "Total de Respaldos"
+
+#. module: auto_backup
+msgid "Successful Backups"
+msgstr "Respaldos Exitosos"
+
+#. module: auto_backup
+msgid "Failed Backups"
+msgstr "Respaldos Fallidos"
+
+#. module: auto_backup
+msgid "Success Rate (%)"
+msgstr "Tasa de Exito (%)"
+
+#. module: auto_backup
+msgid "Average Backup Size"
+msgstr "Tamano Promedio de Respaldo"
+
+#. module: auto_backup
+msgid "Next Scheduled Backup"
+msgstr "Proximo Respaldo Programado"
+
+#. module: auto_backup
+msgid "Backup Now"
+msgstr "Respaldar Ahora"
+
+#. module: auto_backup
+msgid "Test Connection"
+msgstr "Probar Conexion"
+
+#. module: auto_backup
+msgid "Connection Test"
+msgstr "Prueba de Conexion"
+
+#. module: auto_backup
+msgid "Local path is accessible and writable!"
+msgstr "La ruta local es accesible y escribible!"
+
+#. module: auto_backup
+msgid "FTP connection successful!"
+msgstr "Conexion FTP exitosa!"
+
+#. module: auto_backup
+msgid "SFTP connection successful!"
+msgstr "Conexion SFTP exitosa!"
+
+#. module: auto_backup
+msgid "S3 connection successful!"
+msgstr "Conexion S3 exitosa!"
+
+#. module: auto_backup
+msgid "Google Drive connection successful!"
+msgstr "Conexion Google Drive exitosa!"
+
+#. module: auto_backup
+msgid "Connection failed: %s"
+msgstr "Conexion fallida: %s"
+
+#. module: auto_backup
+msgid "Backup completed successfully: %s"
+msgstr "Respaldo completado exitosamente: %s"
+
+#. module: auto_backup
+msgid "Backup failed: %s"
+msgstr "Respaldo fallido: %s"
+
+#. module: auto_backup
+msgid "Backup Complete"
+msgstr "Respaldo Completado"
+
+#. module: auto_backup
+msgid "Please install paramiko: pip install paramiko"
+msgstr "Por favor instala paramiko: pip install paramiko"
+
+#. module: auto_backup
+msgid "Please install boto3: pip install boto3"
+msgstr "Por favor instala boto3: pip install boto3"
+
+#. module: auto_backup
+msgid "Please install: pip install google-api-python-client google-auth"
+msgstr "Por favor instala: pip install google-api-python-client google-auth"
+
+#. module: auto_backup
+msgid "Please install cryptography: pip install cryptography"
+msgstr "Por favor instala cryptography: pip install cryptography"
+
+#. module: auto_backup
+msgid "Encryption password is required"
+msgstr "Se requiere contrasena de encriptacion"
+
+#. module: auto_backup
+msgid "Invalid Google Drive credentials: %s"
+msgstr "Credenciales de Google Drive invalidas: %s"
+
+#. module: auto_backup
+msgid "Database Backups"
+msgstr "Respaldos de Base de Datos"
+
+#. module: auto_backup
+msgid "Backup Configurations"
+msgstr "Configuraciones de Respaldo"
+
+#. module: auto_backup
+msgid "Create your first backup configuration"
+msgstr "Crea tu primera configuracion de respaldo"
+
+#. module: auto_backup
+msgid "Configure automatic backups to Local, FTP, SFTP, Amazon S3 or Google Drive."
+msgstr "Configura respaldos automaticos a Local, FTP, SFTP, Amazon S3 o Google Drive."
+
+#. module: auto_backup
+msgid "Database"
+msgstr "Base de Datos"
+
+#. module: auto_backup
+msgid "Schedule"
+msgstr "Programacion"
+
+#. module: auto_backup
+msgid "Storage"
+msgstr "Almacenamiento"
+
+#. module: auto_backup
+msgid "Destination"
+msgstr "Destino"
+
+#. module: auto_backup
+msgid "Security"
+msgstr "Seguridad"
+
+#. module: auto_backup
+msgid "Retention"
+msgstr "Retencion"
+
+#. module: auto_backup
+msgid "Local Storage"
+msgstr "Almacenamiento Local"
+
+#. module: auto_backup
+msgid "FTP/SFTP Settings"
+msgstr "Configuracion FTP/SFTP"
+
+#. module: auto_backup
+msgid "Amazon S3 / Compatible Storage"
+msgstr "Amazon S3 / Almacenamiento Compatible"
+
+#. module: auto_backup
+msgid "Google Drive Settings"
+msgstr "Configuracion de Google Drive"
+
+#. module: auto_backup
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#. module: auto_backup
+msgid "History"
+msgstr "Historial"
+
+#. module: auto_backup
+msgid "Statistics"
+msgstr "Estadisticas"
+
+#. module: auto_backup
+msgid "Configuration"
+msgstr "Configuracion"
+
+#. module: auto_backup
+msgid "Backup User"
+msgstr "Usuario de Respaldos"
+
+#. module: auto_backup
+msgid "Backup Manager"
+msgstr "Administrador de Respaldos"
+
+#. module: auto_backup
+msgid "Date"
+msgstr "Fecha"
+
+#. module: auto_backup
+msgid "Status"
+msgstr "Estado"
+
+#. module: auto_backup
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: auto_backup
+msgid "File Size"
+msgstr "Tamano de Archivo"
+
+#. module: auto_backup
+msgid "Filename"
+msgstr "Nombre de Archivo"
+
+#. module: auto_backup
+msgid "File Path"
+msgstr "Ruta del Archivo"
+
+#. module: auto_backup
+msgid "Encrypted"
+msgstr "Encriptado"
+
+#. module: auto_backup
+msgid "Download"
+msgstr "Descargar"
+
+#. module: auto_backup
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: auto_backup
+msgid "Cannot download failed backup"
+msgstr "No se puede descargar un respaldo fallido"
+
+#. module: auto_backup
+msgid "Backup file not found on server. It may have been deleted or stored remotely."
+msgstr "Archivo de respaldo no encontrado en el servidor. Puede haber sido eliminado o almacenado remotamente."
+
+#. module: auto_backup
+msgid "Are you sure you want to delete this backup?"
+msgstr "Esta seguro que desea eliminar este respaldo?"
+
+#. module: auto_backup
+msgid "Delete this backup permanently?"
+msgstr "Eliminar este respaldo permanentemente?"
+
+#. module: auto_backup
+msgid "Details"
+msgstr "Detalles"
+
+#. module: auto_backup
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: auto_backup
+msgid "Backup Management"
+msgstr "Gestion de Respaldos"
+
+#. module: auto_backup
+msgid "Configure Backups"
+msgstr "Configurar Respaldos"
+
+#. module: auto_backup
+msgid "Set up automatic backups to Local, FTP, SFTP, Amazon S3 or Google Drive."
+msgstr "Configura respaldos automaticos a Local, FTP, SFTP, Amazon S3 o Google Drive."
+
+#. module: auto_backup
+msgid "Supports AES-256 encryption for secure backups."
+msgstr "Soporta encriptacion AES-256 para respaldos seguros."
+
+#. module: auto_backup
+msgid "View History"
+msgstr "Ver Historial"
+
+#. module: auto_backup
+msgid "View backup logs and download previous backups"
+msgstr "Ver registros de respaldos y descargar respaldos anteriores"
+
+#. module: auto_backup
+msgid "Manage database backup permissions"
+msgstr "Administrar permisos de respaldo de base de datos"
+
+#. module: auto_backup
+msgid "Access Level"
+msgstr "Nivel de Acceso"
+
+#. module: auto_backup
+msgid "User"
+msgstr "Usuario"
+
+#. module: auto_backup
+msgid "Manager"
+msgstr "Administrador"
+
+#. module: auto_backup
+msgid "Can view backup configurations and history"
+msgstr "Puede ver configuraciones de respaldo e historial"
+
+#. module: auto_backup
+msgid "Full access to backup management including S3, Google Drive configuration"
+msgstr "Acceso completo a gestion de respaldos incluyendo configuracion de S3, Google Drive"
