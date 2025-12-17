@@ -8,7 +8,7 @@
     'support': 'programador@outlook.es',
     'category': 'Administration',
     'license': 'LGPL-3',
-    'price': 79.00,
+    'price': 20.00,
     'currency': 'USD',
 
     'summary': 'Professional automatic database backups to Local, FTP, SFTP, Amazon S3, Google Drive with encryption',
